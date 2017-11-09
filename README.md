@@ -1,47 +1,24 @@
-<<<<<<< HEAD
-#FuelPHP
+# VoucherBox
+This is a simple voucher management tool with web service integration for validating vouchers.
 
-* Version: 1.8
-* [Website](http://fuelphp.com/)
-* [Release Documentation](http://docs.fuelphp.com)
-* [Release API browser](http://api.fuelphp.com)
-* [Development branch Documentation](http://dev-docs.fuelphp.com)
-* [Development branch API browser](http://dev-api.fuelphp.com)
-* [Support Forum](http://fuelphp.com/forums) for comments, discussion and community support
+## Operation
+A voucher pool is a collection of (voucher) codes that can be used by customers (recipients) to get discounts in a web shop.
+Each code may only be used once and we would like to know when it was was used by the recipient.
+Since there can be many recipients in a voucher pool, we need a call that auto-generates voucher codes for each recipient.
 
-## Description
+## Functionalities
+- For a given Special Offer and an expiration date generate for each Recipient a Voucher Code
+- Provide an endpoint, reachable via HTTP, which receives a Voucher Code and Email and validates the Voucher Code. In Case it is valid, return the Percentage Discount and set the date of usage
+- Extra: For a given Email, return all his valid Voucher Codes with the Name of the Special Offer
 
-FuelPHP is a fast, lightweight PHP 5.3+ framework. In an age where frameworks are a dime a dozen, We believe that FuelPHP will stand out in the crowd.  It will do this by combining all the things you love about the great frameworks out there, while getting rid of the bad.
+## Author
+* Rodrigo Santa Maria - rodrigo@digitallymade.com.br / www.rodrigostamaria.com
 
-FuelPHP is fully PHP 7 compatible.
+## Components
+* PHP Framework: FuelPHP is a fast, lightweight PHP 5.3+ framework.
+* UI: SBAdmin Boostrap 4 based 
 
-## More information
-
-For more detailed information, see the [development wiki](https://github.com/fuelphp/fuelphp/wiki).
-
-##Development Team
-
-* Harro Verton - Project Manager, Developer ([http://wanwizard.eu/](http://wanwizard.eu/))
-* Steve West - Core Developer, ORM
-* Márk Sági-Kazár - Developer
-
-### Want to join?
-
-The FuelPHP development team is always looking for new team members, who are willing
-to help lift the framework to the next level, and have the commitment to not only
-produce awesome code, but also great documentation, and support to our users.
-
-You can not apply for membership. Start by sending in pull-requests, work on outstanding
-feature requests or bugs, and become active in the #fuelphp IRC channel. If your skills
-are up to scratch, we will notice you, and will ask you to become a team member.
-
-### Alumni
-
-* Frank de Jonge - Developer ([http://frenky.net/](http://frenky.net/))
-* Jelmer Schreuder - Developer ([http://jelmerschreuder.nl/](http://jelmerschreuder.nl/))
-* Phil Sturgeon - Developer ([http://philsturgeon.co.uk](http://philsturgeon.co.uk))
-* Dan Horrigan - Founder, Developer ([http://dhorrigan.com](http://dhorrigan.com))
-=======
-# voucherbox
-This is a simple voucher management tool with web service integration for validating vouchers
->>>>>>> 111731a1843ceb74761b519c2dd7b156c738e632
+## Requirements
+* PHP 5.6 or higher
+* MySQL Server 5.7 or higher
+* LAMP/WAMP stack
