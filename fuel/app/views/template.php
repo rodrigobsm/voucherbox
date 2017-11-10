@@ -22,6 +22,14 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+<div id="loader">
+    <div>
+        <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i><br>
+        <p>Loading...</p>
+    </div>
+</div>
+
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.html"><img class="img-logo" src="<?php echo Uri::create('assets/favicon.png'); ?>"> VoucherBox</a>
@@ -115,12 +123,12 @@
                     Are you sure?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Yes</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-primary" id="yes">Yes</button>
                     <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
                 </div>
             </div>
         </div>
-    </div>x
+    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?php echo Uri::create('assets/vendor/jquery/jquery.min.js'); ?>"></script>
@@ -132,7 +140,7 @@
     <script src="<?php echo Uri::create('assets/vendor/datatables/jquery.dataTables.js'); ?>"></script>
     <script src="<?php echo Uri::create('assets/vendor/datatables/dataTables.bootstrap4.js'); ?>"></script>
     <!-- Custom scripts for all pages-->
-    <script src="<?php echo Uri::create('assets/js/sb-admin.min.js'); ?>"></script>
+    <script src="<?php echo Uri::create('assets/js/sb-admin.js'); ?>"></script>
     <!-- Custom scripts for this page-->
     <script src="<?php echo Uri::create('assets/js/sb-admin-datatables.min.js'); ?>"></script>
     <script src="<?php echo Uri::create('assets/js/sb-admin-charts.js'); ?>"></script>

@@ -2,7 +2,7 @@
 <div class="card mb-3">
     <div class="card-header">
         <i class="fa fa-ticket"></i> Recipients List
-        <a class="btn btn-success text-light pull-right" data-toggle="modal" data-target="#formModal"><i class="fa fa-file"></i> New</a>
+        <a id="btnRecipientsNew" class="btn btn-success text-light pull-right" data-toggle="modal" data-target="#formRecipientsModal"><i class="fa fa-file"></i> New</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -29,9 +29,9 @@
                                     <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" data-toggle="modal" data-target="#formModal"><i
+                                    <a class="dropdown-item recipient-edit-btn" data-id="<?=$r->id_recipient;?>"><i
                                                 class="fa fa-pencil"></i> Edit</a>
-                                    <a class="dropdown-item" data-toggle="modal" data-target="#confirm"><i
+                                    <a class="dropdown-item recipient-delete-btn" data-id="<?=$r->id_recipient;?>"><i
                                                 class="fa fa-trash"></i> Delete</a>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+<div class="modal fade" id="formRecipientsModal" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -57,24 +57,23 @@
                 </button>
             </div>
             <div class="modal-body">
-
-                <form>
+                <form id="formRecipients">
                     <div class="form-group row">
-                        <label for="id" class="col-2 col-form-label">ID</label>
+                        <label for="id_recipient" class="col-2 col-form-label">ID</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" value="" id="id" readonly>
+                            <input class="form-control" type="text" value="" id="id_recipient" name="id_recipient" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="name" class="col-2 col-form-label">Name</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" value="" id="name">
+                            <input class="form-control" type="text" value="" id="name" name="name">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="email" class="col-2 col-form-label">Email</label>
                         <div class="col-10">
-                            <input class="form-control" type="email" value="" id="email">
+                            <input class="form-control" type="email" value="" id="email" name="email">
                         </div>
                     </div>
                 </form>
@@ -82,7 +81,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="#">OK</a>
+                <a id="formRecipientsModalOk" class="btn btn-primary" href="#">OK</a>
             </div>
         </div>
     </div>

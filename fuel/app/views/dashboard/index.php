@@ -103,6 +103,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
+                            <hr>ID</tr>
                             <th>Code</th>
                             <th>Recipient</th>
                             <th>Offer</th>
@@ -113,108 +114,20 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php foreach ($vouchers as $v): ?>
                         <tr>
-                            <td>8A3B0F3W</td>
-                            <td>Mike Johnson</td>
-                            <td>Black Friday 20% OFF</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>11/02/2017</td>
-                            <td>-</td>
+                            <td><?=$v->id_voucher;?></td>
+                            <td><?=$v->code;?></td>
+                            <td><?=$v->recipient->name;?></td>
+                            <td><?=$v->offer->name;?></td>
+                            <td><?=($v->only_once) ? 'Yes':'No';?></td>
+                            <td><?=($v->track_usage) ? 'Yes':'No';?></td>
+                            <td><?=$v->date_expiration;?></td>
+                            <td><?=($v->date_usage) ? $v->date_usage : '-';?></td>
                         </tr>
-                        <tr>
-                            <td>8A3B0F3W</td>
-                            <td>Mike Johnson</td>
-                            <td>Black Friday 20% OFF</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>11/02/2017</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>8A3B0F3W</td>
-                            <td>Mike Johnson</td>
-                            <td>Black Friday 20% OFF</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>11/02/2017</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>8A3B0F3W</td>
-                            <td>Mike Johnson</td>
-                            <td>Black Friday 20% OFF</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>11/02/2017</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>8A3B0F3W</td>
-                            <td>Mike Johnson</td>
-                            <td>Black Friday 20% OFF</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>11/02/2017</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>8A3B0F3W</td>
-                            <td>Mike Johnson</td>
-                            <td>Black Friday 20% OFF</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>11/02/2017</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>8A3B0F3W</td>
-                            <td>Mike Johnson</td>
-                            <td>Black Friday 20% OFF</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>11/02/2017</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>8A3B0F3W</td>
-                            <td>Mike Johnson</td>
-                            <td>Black Friday 20% OFF</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>11/02/2017</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>8A3B0F3W</td>
-                            <td>Mike Johnson</td>
-                            <td>Black Friday 20% OFF</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>11/02/2017</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>8A3B0F3W</td>
-                            <td>Mike Johnson</td>
-                            <td>Black Friday 20% OFF</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>11/02/2017</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>8A3B0F3W</td>
-                            <td>Mike Johnson</td>
-                            <td>Black Friday 20% OFF</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>11/02/2017</td>
-                            <td>-</td>
-                        </tr>
+                        <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>

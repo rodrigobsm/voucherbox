@@ -374,3 +374,30 @@ footer.sticky-footer {
   -moz-box-shadow: 0px 1px 0px rgba(0,0,0,0.2);
   box-shadow: 0px 1px 0px rgba(0,0,0,0.2);
 }
+
+#loader {
+  background: rgba(0,0,0,0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  height: 100%;
+  display: none;
+}
+
+#loader div {
+  background: #fff;
+  display: block;
+  text-align: center;
+  width: 130px;
+  margin-top: 20% !important;
+  height: 100px;
+  padding-top: 25px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 2px 7px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 2px 7px rgba(0,0,0,0.5);
+  box-shadow: 0px 2px 7px rgba(0,0,0,0.5);
+  margin: 0 auto;
+}

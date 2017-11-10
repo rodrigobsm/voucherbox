@@ -29,7 +29,8 @@ class Controller_Dashboard extends Controller_Template
 	public function action_index()
 	{
         $data = array();
-        $data["total_recipients"] = count(\Model_Recipients::find('all'));
+        $data["total_recipients"] = count(\Model_Recipient::find('all'));
+        $data["vouchers"] = \Model_Voucher::find('all');
         $this->template->title = "Dashboard";
         $this->template->content = \View::forge('dashboard/index', $data);
 	}
