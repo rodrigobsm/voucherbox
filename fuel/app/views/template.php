@@ -32,31 +32,31 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <li class="nav-item <?php if ( \Uri::segment(1) == '' ) echo "active" ?>" data-toggle="tooltip" data-placement="right" title="Dashboard">
                 <a class="nav-link" href="<?php echo Uri::create(""); ?>">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Recipients">
+            <li class="nav-item <?php if ( \Uri::segment(1) == 'recipients' ) echo "active" ?>" data-toggle="tooltip" data-placement="right" title="Recipients">
                 <a class="nav-link" href="<?php echo Uri::create("recipients"); ?>">
                     <i class="fa fa-fw fa-users"></i>
                     <span class="nav-link-text">Recipients</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Offers">
+            <li class="nav-item <?php if ( \Uri::segment(1) == 'offers' ) echo "active" ?>" data-toggle="tooltip" data-placement="right" title="Offers">
                 <a class="nav-link" href="<?php echo Uri::create("offers"); ?>">
                     <i class="fa fa-fw fa-shopping-bag"></i>
                     <span class="nav-link-text">Offers</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Vouchers">
+            <li class="nav-item <?php if ( \Uri::segment(1) == 'vouchers' ) echo "active" ?>" data-toggle="tooltip" data-placement="right" title="Vouchers">
                 <a class="nav-link" href="<?php echo Uri::create("vouchers"); ?>">
                     <i class="fa fa-fw fa-ticket"></i>
                     <span class="nav-link-text">Vouchers</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="API Documentation">
+            <li class="nav-item <?php if ( \Uri::segment(1) == 'api' ) echo "active" ?>" data-toggle="tooltip" data-placement="right" title="API Documentation">
                 <a class="nav-link" href="<?php echo Uri::create("api"); ?>">
                     <i class="fa fa-fw fa-support"></i>
                     <span class="nav-link-text">API Documentation</span>
@@ -75,6 +75,15 @@
 <div class="content-wrapper">
 
     <div class="container-fluid">
+
+        <!-- Breadcrumbs
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <h4><?php // echo $title; ?></h4>
+            </li>
+        </ol>
+        -->
+
         <?php echo $content; ?>
     </div>
 
@@ -90,6 +99,28 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
     </a>
+
+    <!-- Common Modals -->
+    <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center"><i class="fa fa-question-circle fa-4x"></i><br>
+                    Are you sure?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Yes</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>x
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?php echo Uri::create('assets/vendor/jquery/jquery.min.js'); ?>"></script>

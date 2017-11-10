@@ -11,10 +11,9 @@
  */
 
 /**
- * The Welcome Controller.
+ * The Dashboard Controller.
  *
- * A basic controller example.  Has examples of how to set the
- * response body and status.
+ * This is the first page seen by the user. It gives an overview of the current status of the system.
  *
  * @package  app
  * @extends  Controller
@@ -22,14 +21,15 @@
 class Controller_Dashboard extends Controller_Template
 {
 	/**
-	 * The basic welcome message
+	 * The dashboard page - default home page
 	 *
 	 * @access  public
 	 * @return  Response
 	 */
 	public function action_index()
 	{
-	    $data = array();
+        $data = array();
+        $data["total_recipients"] = count(\Model_Recipients::find('all'));
         $this->template->title = "Dashboard";
         $this->template->content = \View::forge('dashboard/index', $data);
 	}

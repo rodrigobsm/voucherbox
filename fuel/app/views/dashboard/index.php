@@ -6,9 +6,9 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-users"></i>
                         </div>
-                        <div class="mr-5">3 Recipients</div>
+                        <div class="mr-5"><h1><?=$total_recipients;?></h1> Recipients</div>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#">
+                    <a class="card-footer text-white clearfix small z-1" href="<?php echo Uri::create('recipients'); ?>">
                         <span class="float-left">View Details</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -22,9 +22,9 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-shopping-bag"></i>
                         </div>
-                        <div class="mr-5">3 Offers</div>
+                        <div class="mr-5"><h1>3</h1> Offers</div>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#">
+                    <a class="card-footer text-white clearfix small z-1" href="<?php echo Uri::create('offers'); ?>">
                         <span class="float-left">View Details</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -38,9 +38,9 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-ticket"></i>
                         </div>
-                        <div class="mr-5">5 Total Vouchers</div>
+                        <div class="mr-5"><h1>5</h1> Total Vouchers</div>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#">
+                    <a class="card-footer text-white clearfix small z-1" href="<?php echo Uri::create('vouchers'); ?>">
                         <span class="float-left">View Details</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -54,9 +54,9 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-ticket"></i>
                         </div>
-                        <div class="mr-5">2 Used Vouchers</div>
+                        <div class="mr-5"><h1>2</h1> Used Vouchers</div>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#">
+                    <a class="card-footer text-white clearfix small z-1" href="<?php echo Uri::create('vouchers'); ?>">
                         <span class="float-left">View Details</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -96,7 +96,7 @@
         <!-- Latest Vouchers DataTable -->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-ticket"></i> Vouchers Listing
+                <i class="fa fa-ticket"></i> Latest Vouchers
             </div>
             <div class="card-body">
                 <div class="table-responsive">
