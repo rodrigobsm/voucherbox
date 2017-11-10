@@ -42,8 +42,8 @@ class Generate_Admin extends Generate_Scaffold
 
 		$default_files = array(
 			array(
-				'source' => $subfolder.'/controllers/base.php',
-				'location' => 'classes/controller/base.php',
+				'source' => $subfolder.'/controllers/template.php',
+				'location' => 'classes/controller/template.php',
 				'type' => 'controller',
 			),
 			array(

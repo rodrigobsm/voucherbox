@@ -19,7 +19,7 @@
  * @package  app
  * @extends  Controller
  */
-class Controller_Dashboard extends Controller
+class Controller_Dashboard extends Controller_Template
 {
 	/**
 	 * The basic welcome message
@@ -29,7 +29,9 @@ class Controller_Dashboard extends Controller
 	 */
 	public function action_index()
 	{
-		return Response::forge(View::forge('dashboard/index'));
+	    $data = array();
+        $this->template->title = "Dashboard";
+        $this->template->content = \View::forge('dashboard/index', $data);
 	}
 
 	/**
@@ -40,6 +42,8 @@ class Controller_Dashboard extends Controller
 	 */
 	public function action_404()
 	{
-		return Response::forge(Presenter::forge('dashboard/404'), 404);
+        $data = array();
+        $this->template->title = "Page Not Found";
+        $this->template->content = \View::forge('dashboard/404', $data);
 	}
 }
