@@ -15,10 +15,13 @@ Since there can be many recipients in a voucher pool, we need a call that auto-g
 * Rodrigo Santa Maria - rodrigo@digitallymade.com.br / www.rodrigostamaria.com
 
 ## Components
-* PHP Framework: FuelPHP is a fast, lightweight PHP 5.3+ framework.
-* UI: SBAdmin Boostrap 4 based 
+* PHP Framework: FuelPHP 1.8 - https://fuelphp.com/downloads
+* User Interface: SBAdmin Boostrap 4 based - https://startbootstrap.com/template-overviews/sb-admin/
 
 ## Requirements
 * PHP 5.6 or higher
 * MySQL Server 5.7 or higher
 * LAMP/WAMP stack
+
+## License
+* MIT License
