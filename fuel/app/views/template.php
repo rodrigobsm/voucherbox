@@ -32,7 +32,7 @@
 
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html"><img class="img-logo" src="<?php echo Uri::create('assets/favicon.png'); ?>"> VoucherBox</a>
+    <a class="navbar-brand" href="<?php echo Uri::create(""); ?>"><img class="img-logo" src="<?php echo Uri::create('assets/favicon.png'); ?>"> VoucherBox</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -142,7 +142,7 @@
     <!-- Custom scripts for all pages-->
     <script src="<?php echo Uri::create('assets/js/sb-admin.js'); ?>"></script>
     <!-- Custom scripts for this page-->
-    <script src="<?php echo Uri::create('assets/js/sb-admin-datatables.min.js'); ?>"></script>
+    <script src="<?php echo Uri::create('assets/js/sb-admin-datatables.js'); ?>"></script>
     <script src="<?php echo Uri::create('assets/js/sb-admin-charts.js'); ?>"></script>
 </div>
 </body>

@@ -51,67 +51,10 @@
         event.preventDefault();
     });
 
-    // Recipients Edit Button
-    $(".recipient-edit-btn").on('click', function () {
-        var id = $(this).data('id');
-        $("#loader").fadeIn('fast');
-        $.getJSON("recipients/get/"+id, {}).done(function (data) {
-            $("#id_recipient").val(data.id_recipient);
-            $("#name").val(data.name);
-            $("#email").val(data.email);
-            $("#loader").fadeOut('fast');
-            $('#formRecipientsModal').modal('show');
-        });
-    });
-
     // Recipients New button
     $("#btnRecipientsNew").on('click', function(){
         $("#formRecipients")[0].reset();
     });
 
-    // Recipients form OK button
-    $("#formRecipientsModalOk").on('click', function () {
-        $("#loader").fadeIn('fast');
-        $.ajax({
-            type: "POST",
-            url: "recipients/set",
-            data: $("#formRecipients").serialize(),
-            dataType: "json",
-            success: function(data) {
-                if (data!="1") alert("Error updating/creating record!");
-                $("#loader").fadeOut('fast');
-                $('#formRecipientsModal').modal('hide');
-                window.location.reload();
-            },
-            error: function() {
-                alert('Error updating record.');
-                $("#loader").fadeOut('fast');
-                $('#formRecipientsModal').modal('hide');
-            }
-        });
-    });
-
-    // Recipients Delete button
-    $(".recipient-delete-btn").on('click', function(e) {
-        var id = $(this).data('id');
-        $('#confirm').modal({}).one('click', '#yes', function(e) {
-            $("#loader").fadeIn('fast');
-            $.ajax({
-                type: "GET",
-                url: "recipients/del/"+id,
-                success: function(data) {
-                    if (data!="1") alert("Error deleting record!");
-                    $("#loader").fadeOut('fast');
-                    $('#formRecipientsModal').modal('hide');
-                    window.location.reload();
-                },
-                error: function() {
-                    alert('Error deleting record.');
-                    $("#loader").fadeOut('fast');
-                    $('#formRecipientsModal').modal('hide');
-                }
-            });
-        });
-    });
 
 })(jQuery); // End of use strict

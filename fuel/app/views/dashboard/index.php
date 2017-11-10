@@ -22,7 +22,7 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-shopping-bag"></i>
                         </div>
-                        <div class="mr-5"><h1>3</h1> Offers</div>
+                        <div class="mr-5"><h1><?=$total_offers;?></h1> Offers</div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="<?php echo Uri::create('offers'); ?>">
                         <span class="float-left">View Details</span>
@@ -38,7 +38,7 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-ticket"></i>
                         </div>
-                        <div class="mr-5"><h1>5</h1> Total Vouchers</div>
+                        <div class="mr-5"><h1><?=$total_vouchers;?></h1> Total Vouchers</div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="<?php echo Uri::create('vouchers'); ?>">
                         <span class="float-left">View Details</span>
@@ -54,7 +54,7 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-ticket"></i>
                         </div>
-                        <div class="mr-5"><h1>2</h1> Used Vouchers</div>
+                        <div class="mr-5"><h1><?=$total_vouchers_used;?></h1> Used Vouchers</div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="<?php echo Uri::create('vouchers'); ?>">
                         <span class="float-left">View Details</span>
@@ -103,7 +103,6 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <hr>ID</tr>
                             <th>Code</th>
                             <th>Recipient</th>
                             <th>Offer</th>
@@ -116,7 +115,6 @@
                         <tbody>
                         <?php foreach ($vouchers as $v): ?>
                         <tr>
-                            <td><?=$v->id_voucher;?></td>
                             <td><?=$v->code;?></td>
                             <td><?=$v->recipient->name;?></td>
                             <td><?=$v->offer->name;?></td>

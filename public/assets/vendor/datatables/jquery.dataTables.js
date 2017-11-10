@@ -14960,7 +14960,7 @@
 	 */
 	$.extend( DataTable.ext.internal, {
 		_fnExternApiFunc: _fnExternApiFunc,
-		_fnBuildAjax: _fnBuildAjax,
+		_c: _fnBuildAjax,
 		_fnAjaxUpdate: _fnAjaxUpdate,
 		_fnAjaxParameters: _fnAjaxParameters,
 		_fnAjaxUpdateDraw: _fnAjaxUpdateDraw,

@@ -1,17 +1,22 @@
 <!-- Latest Vouchers DataTable -->
 <div class="card mb-3">
     <div class="card-header">
-        <i class="fa fa-ticket"></i> Recipients List
-        <a id="btnRecipientsNew" class="btn btn-success text-light pull-right" data-toggle="modal" data-target="#formRecipientsModal"><i class="fa fa-file"></i> New</a>
+        <i class="fa fa-ticket"></i> Vouchers List
+        <a id="btnRecipientsNew" class="btn btn-success text-light pull-right" data-toggle="modal" data-target="#formVouchersModal"><i class="fa fa-file"></i> New</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="RecipientsTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="VouchersTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>E-mail</th>
+                    <th>Recipient</th>
+                    <th>Offer</th>
+                    <th>Expiration</th>
+                    <th>Only Once</th>
+                    <th>Usage</th>
+                    <th>Track Usage</th>
+                    <th>Code</th>
                     <th width="1%">Action</th>
                 </tr>
                 </thead>
@@ -24,7 +29,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="formRecipientsModal" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+<div class="modal fade" id="formVouchersModal" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -58,7 +63,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a id="formRecipientsModalOk" class="btn btn-primary" href="#">OK</a>
+                <a id="formVouchersModalOk" class="btn btn-primary" href="#">OK</a>
             </div>
         </div>
     </div>

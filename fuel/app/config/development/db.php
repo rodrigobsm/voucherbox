@@ -8,7 +8,7 @@ return array(
 		'connection'  => array(
 			'dsn'        => 'mysql:host=localhost;dbname=voucherbox',
 			'username'   => 'root',
-			'password'   => 'vertrigo',
+			'password'   => '',
 		),
 	),
 );

@@ -30,6 +30,10 @@ class Controller_Dashboard extends Controller_Template
 	{
         $data = array();
         $data["total_recipients"] = count(\Model_Recipient::find('all'));
+        $data["total_offers"] = count(\Model_Offer::find('all'));
+        $data["total_vouchers"] = count(\Model_Voucher::find('all'));
+        $data["total_vouchers_used"] = count(\Model_Voucher::find('all', array('where' => array(array('date_usage', 'IS NOT', null)))));
+
         $data["vouchers"] = \Model_Voucher::find('all');
         $this->template->title = "Dashboard";
         $this->template->content = \View::forge('dashboard/index', $data);
