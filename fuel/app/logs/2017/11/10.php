@@ -564,3 +564,4 @@ WARNING - 2017-11-10 19:45:27 --> Fuel\Core\Fuel::init - The configured locale e
 WARNING - 2017-11-10 19:45:31 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 WARNING - 2017-11-10 19:45:31 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 WARNING - 2017-11-10 19:45:32 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2017-11-10 18:13:09 --> 1045 - SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /Library/WebServer/Documents/voucherbox/fuel/core/classes/database/pdo/connection.php on line 112

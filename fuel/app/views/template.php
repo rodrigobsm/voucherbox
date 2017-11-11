@@ -92,6 +92,23 @@
         </ol>
         -->
 
+        <?php if (Session::get_flash('success')): ?>
+            <div class="alert alert-success">
+                <strong><i class="fa fa-check"></i> Success</strong>
+                <p class="m-0 p-0">
+                    <?php echo \Session::get_flash('success'); ?>
+                </p>
+            </div>
+        <?php endif; ?>
+        <?php if (Session::get_flash('error')): ?>
+            <div class="alert alert-danger">
+                <strong><i class="fa fa-warning"></i> Error</strong>
+                <p class="m-0 p-0">
+                    <?php echo implode('</p><p>', e((array) Session::get_flash('error'))); ?>
+                </p>
+            </div>
+        <?php endif; ?>
+
         <?php echo $content; ?>
     </div>
 

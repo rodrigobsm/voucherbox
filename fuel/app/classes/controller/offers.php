@@ -11,14 +11,14 @@
  */
 
 /**
- * The Recipients Controller.
+ * The Offers Controller.
  *
- * This controller is reponsible for recipients management.
+ * This controller is reponsible for offers management.
  *
  * @package  app
  * @extends  Controller
  */
-class Controller_Recipients extends Controller_Template
+class Controller_Offers extends Controller_Template
 {
 	/**
 	 * The main action
@@ -29,15 +29,15 @@ class Controller_Recipients extends Controller_Template
 	public function action_index()
 	{
 	    $data = array();
-	    $data["recipients"] = \Model_Recipient::find('all');
-        $this->template->title = "Recipients";
-        $this->template->content = \View::forge('recipients/index', $data);
+	    $data["offers"] = \Model_Offer::find('all');
+        $this->template->title = "Offers";
+        $this->template->content = \View::forge('offers/index', $data);
 	}
 
     public function action_table()
     {
         $data = array();
-        $list = \Model_Recipient::find('all');
+        $list = \Model_Offer::find('all');
         foreach ($list as $item) {
             $columns = $item->to_array();
             $columns["action"] = '<div class="dropdown">
@@ -47,9 +47,9 @@ class Controller_Recipients extends Controller_Template
                                     <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item recipient-edit-btn" data-id="'.$columns["id_recipient"].'"><i
+                                    <a class="dropdown-item offer-edit-btn" data-id="'.$columns["id_offer"].'"><i
                                                 class="fa fa-pencil"></i> Edit</a>
-                                    <a class="dropdown-item recipient-delete-btn" data-id="'.$columns["id_recipient"].'"><i
+                                    <a class="dropdown-item offer-delete-btn" data-id="'.$columns["id_offer"].'"><i
                                                 class="fa fa-trash"></i> Delete</a>
                                 </div>
                             </div>';
@@ -63,9 +63,9 @@ class Controller_Recipients extends Controller_Template
     public function action_list()
     {
         $data = array();
-        $list = \Model_Recipient::find('all');
+        $list = \Model_Offer::find('all');
         foreach ($list as $item) {
-            $columns["value"] = $item->id_recipient;
+            $columns["value"] = $item->id_offer;
             $columns["name"] = $item->name;
             $data["data"][] = $columns;
         }
@@ -76,21 +76,21 @@ class Controller_Recipients extends Controller_Template
 
     public function action_get($id)
     {
-        echo json_encode(\Model_Recipient::find($id)->to_array());
+        echo json_encode(\Model_Offer::find($id)->to_array());
         return false;
     }
 
     public function action_set()
     {
-        if (!empty($_POST["id_recipient"])) {
+        if (!empty($_POST["id_offer"])) {
             // update
-            $record = \Model_Recipient::find($_POST["id_recipient"]);
+            $record = \Model_Offer::find($_POST["id_offer"]);
             $record->name = $_POST["name"];
-            $record->email = $_POST["email"];
+            $record->discount = $_POST["discount"];
         } else {
             // new
-            $record = \Model_Recipient::forge($_POST);
-            $record->id_recipient = null;
+            $record = \Model_Offer::forge($_POST);
+            $record->id_offer = null;
         }
 
         echo ($record->save()) ? '1':'0';
@@ -99,7 +99,7 @@ class Controller_Recipients extends Controller_Template
 
     public function action_del($id)
     {
-        $record = \Model_Recipient::find($id);
+        $record = \Model_Offer::find($id);
         echo ($record->delete()) ? '1':'0';
         return false;
     }

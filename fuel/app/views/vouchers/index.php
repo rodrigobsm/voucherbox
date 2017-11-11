@@ -2,7 +2,8 @@
 <div class="card mb-3">
     <div class="card-header">
         <i class="fa fa-ticket"></i> Vouchers List
-        <a id="btnRecipientsNew" class="btn btn-success text-light pull-right" data-toggle="modal" data-target="#formVouchersModal"><i class="fa fa-file"></i> New</a>
+        <a id="btnGenerateVouchers" class="btn btn-primary text-light pull-right" data-toggle="modal" data-target="#formVouchersGenerate"><i class="fa fa-cog"></i> Generate Vouchers</a>
+        <a id="btnVouchersNew" class="btn btn-success text-light pull-right mr-2" data-toggle="modal" data-target="#formVouchersModal"><i class="fa fa-file"></i> New</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -33,29 +34,54 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Recipient</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Voucher</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="formRecipients">
+                <form id="formVouchers">
                     <div class="form-group row">
-                        <label for="id_recipient" class="col-2 col-form-label">ID</label>
-                        <div class="col-10">
-                            <input class="form-control" type="text" value="" id="id_recipient" name="id_recipient" readonly>
+                        <label for="id_voucher" class="col-3 col-form-label">ID</label>
+                        <div class="col-9">
+                            <input class="form-control" type="text" value="" id="id_voucher" name="id_voucher" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="name" class="col-2 col-form-label">Name</label>
-                        <div class="col-10">
-                            <input required class="form-control" type="text" value="" id="name" name="name" placeholder="Enter your Name">
+                        <label for="name" class="col-3 col-form-label">Recipient</label>
+                        <div class="col-9">
+                            <select required class="form-control" type="text" value="" id="id_recipient" name="id_recipient"></select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="email" class="col-2 col-form-label">Email</label>
-                        <div class="col-10">
-                            <input required class="form-control" type="email" value="" id="email" name="email" placeholder="Enter your E-mail">
+                        <label for="email" class="col-3 col-form-label">Offer</label>
+                        <div class="col-9">
+                            <select required class="form-control" type="text" value="" id="id_offer" name="id_offer"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-3 col-form-label"></label>
+                        <div class="col-9">
+                            <label><input class="" type="checkbox" value="1" id="only_once" name="only_once" placeholder="Only Once"> Only Once</label>
+                            <label class="pl-5"><input class="" type="checkbox" value="1" id="track_usage" name="track_usage" placeholder="Track Usage"> Track Usage</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-3 col-form-label">Exp. Date</label>
+                        <div class="col-9">
+                            <input required class="form-control" type="date" value="" id="date_expiration" name="date_expiration" placeholder="Expiration Date">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-3 col-form-label">Use Date</label>
+                        <div class="col-9">
+                            <input class="form-control" type="date" value="" id="date_usage" name="date_usage" placeholder="Usage Date">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-3 col-form-label">Code</label>
+                        <div class="col-9">
+                            <input required class="form-control" type="text" value="" id="code" name="code" placeholder="Code" maxlength="8">
                         </div>
                     </div>
                 </form>
@@ -65,6 +91,41 @@
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                 <a id="formVouchersModalOk" class="btn btn-primary" href="#">OK</a>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Generate Vouchers Modal -->
+<div class="modal fade" id="formVouchersGenerate" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="formGenerateVouchers" action="<?php echo Uri::create('vouchers/generate'); ?>" method="post">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Batch Generate Vouchers</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                    <div class="form-group row">
+                        <label for="email" class="col-3 col-form-label">Offer</label>
+                        <div class="col-9">
+                            <select required class="form-control" type="text" value="" id="id_offer_gen" name="id_offer_gen"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-3 col-form-label">Exp. Date</label>
+                        <div class="col-9">
+                            <input required class="form-control" type="date" value="" id="date_expiration" name="date_expiration" placeholder="Offer">
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button tyu class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button tyu>
+                <input type="submit" class="btn btn-primary" value="Generate">
+            </div>
+            </form>
         </div>
     </div>
 </div>

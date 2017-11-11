@@ -39,17 +39,24 @@ class Controller_Vouchers extends Controller_Template
         $data = array();
         $list = \Model_Voucher::find('all');
         foreach ($list as $item) {
+            $item->id_recipient = $item->recipient->name;
+            $item->id_offer = $item->offer->name;
+            $item->only_once = ($item->only_once) ? "Yes":"No";
+            $item->track_usage = ($item->track_usage) ? "Yes":"No";
+            $item->date_usage = (empty($item->date_usage)) ? "Not Used":$item->date_usage;
             $columns = $item->to_array();
-            $columns["action"] = '<div class="dropdown">
+            array_splice($columns, 8, 2); // clear unused items in listing
+
+            $columns["actions"] = '<div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle btn-sm" type="button"
                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
                                     <i class="fa fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item recipient-edit-btn" data-id="'.$columns["id_voucher"].'"><i
+                                    <a class="dropdown-item voucher-edit-btn" data-id="'.$columns["id_voucher"].'"><i
                                                 class="fa fa-pencil"></i> Edit</a>
-                                    <a class="dropdown-item recipient-delete-btn" data-id="'.$columns["id_voucher"].'"><i
+                                    <a class="dropdown-item voucher-delete-btn" data-id="'.$columns["id_voucher"].'"><i
                                                 class="fa fa-trash"></i> Delete</a>
                                 </div>
                             </div>';
@@ -71,12 +78,20 @@ class Controller_Vouchers extends Controller_Template
         if (!empty($_POST["id_voucher"])) {
             // update
             $record = \Model_Voucher::find($_POST["id_voucher"]);
-            $record->name = $_POST["name"];
-            $record->email = $_POST["email"];
+            $record->id_recipient = $_POST["id_recipient"];
+            $record->id_offer = $_POST["id_offer"];
+            $record->date_expiration = $_POST["date_expiration"];
+            $record->only_once = (isset($_POST["only_once"])) ? true : false;   // checkbox input
+            $record->date_usage = (!empty($_POST["date_usage"])) ? $_POST["date_usage"] : NULL;     // not null
+            $record->track_usage = (isset($_POST["track_usage"])) ? true : false;   // checkbox input
+            $record->code = $_POST["code"];
         } else {
             // new
             $record = \Model_Voucher::forge($_POST);
             $record->id_voucher = null;
+            $record->date_usage = (!empty($_POST["date_usage"])) ? $_POST["date_usage"] : NULL;     // not null
+            $record->only_once = (isset($_POST["only_once"])) ? true : false;   // checkbox input
+            $record->track_usage = (isset($_POST["track_usage"])) ? true : false;   // checkbox input
         }
 
         echo ($record->save()) ? '1':'0';
@@ -88,6 +103,44 @@ class Controller_Vouchers extends Controller_Template
         $record = \Model_Voucher::find($id);
         echo ($record->delete()) ? '1':'0';
         return false;
+    }
+
+    public function action_generate()
+    {
+
+        /* For a given Special Offer and an expiration date generate for each Recipient a
+           Voucher Code
+        */
+
+        $id_offer = Input::post("id_offer_gen");
+        $expiration_date = Input::post("date_expiration");
+
+        $recipients = \Model_Recipient::find('all');
+        foreach ($recipients as $r) {
+
+            // Create a new voucher record
+            $voucher = new \Model_Voucher();
+            $voucher->id_recipient = $r->id_recipient;
+            $voucher->id_offer = $id_offer;
+            $voucher->date_expiration = $expiration_date;
+            $voucher->only_once = true;
+            $voucher->date_usage = NULL;
+            $voucher->track_usage = true;
+            $voucher->code = $this->generateVoucherCode();  // generate random code
+
+            $voucher->save();
+
+        }
+
+        Session::set_flash("success", "All vouchers have been generated sucessfully.");
+        Response::redirect_back();
+
+    }
+
+    private function generateVoucherCode($length = 8) {
+        $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $code = substr(str_shuffle($chars), 0, $length);
+        return $code;
     }
 
 }

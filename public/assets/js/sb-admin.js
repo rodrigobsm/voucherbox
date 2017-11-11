@@ -56,5 +56,52 @@
         $("#formRecipients")[0].reset();
     });
 
+    // Vouchers New button
+    $("#btnVouchersNew").on('click', function(){
+        $("#formVouchers")[0].reset();
+
+        // populate recipients list
+        $.getJSON("recipients/list", function(json){
+            $('#id_recipient').empty();
+            $('#id_recipient').append($('<option>').text("Select"));
+            $.each(json.data, function(i, obj){
+                $('#id_recipient').append($('<option>').text(obj.name).attr('value', obj.value));
+            });
+        });
+
+        // populate offers list
+        $.getJSON("offers/list", function(json){
+            $('#id_offer').empty();
+            $('#id_offer').append($('<option>').text("Select"));
+            $.each(json.data, function(i, obj){
+                $('#id_offer').append($('<option>').text(obj.name).attr('value', obj.value));
+            });
+        });
+
+    });
+
+    // Offers New button
+    $("#btnOffersNew").on('click', function(){
+        $("#formOffers")[0].reset();
+    });
+
+    // Generate New Offers button
+    $("#btnGenerateVouchers").on('click', function(){
+        $("#formGenerateVouchers")[0].reset();
+
+        // populate offers list
+        $.getJSON("offers/list", function(json){
+            $('#id_offer_gen').empty();
+            $('#id_offer_gen').append($('<option>').text("Select"));
+            $.each(json.data, function(i, obj){
+                $('#id_offer_gen').append($('<option>').text(obj.name).attr('value', obj.value));
+            });
+        });
+    });
+
+    $(".alert").on("click", function(){
+        // Slide up alert message when clicked
+        $(".alert").slideUp();
+    });
 
 })(jQuery); // End of use strict
