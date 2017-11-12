@@ -23,5 +23,12 @@ Since there can be many recipients in a voucher pool, we need a call that auto-g
 * MySQL Server 5.7 or higher
 * LAMP/WAMP stack
 
+## How to run this application
+1. Extract all files of the zip or clone this repository to your LAMP "/httpdocs" folder.
+2. Import the MySQL dump file from "voucherbox/EXTRA/DB/voucherbox_sample_dump.sql" into your local MySQL server.
+3. Configure the file "voucherbox/fuel/app/config/development/db.php" with your MySQL username and password.
+4. Access the application from you web browser like "http://localhost/voucherbox/".
+5. Now you can use this application with happiness! :)
+
 ## License
 * MIT License
