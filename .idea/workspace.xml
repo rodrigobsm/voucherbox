@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5650e2a3-a0bb-4b0a-9f2d-9e20c2d20df9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-    </list>
+    <list default="true" id="5650e2a3-a0bb-4b0a-9f2d-9e20c2d20df9" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -672,12 +670,12 @@
       <workItem from="1510271472063" duration="4633000" />
       <workItem from="1510276207258" duration="11632000" />
       <workItem from="1510313214754" duration="12073000" />
-      <workItem from="1510423332058" duration="25282000" />
+      <workItem from="1510423332058" duration="25886000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53620000" />
+    <option name="totallyTimeSpent" value="54224000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -689,7 +687,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1015" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1015" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1484375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
