@@ -19,6 +19,17 @@
     <link href="<?php echo Uri::create('assets/css/sb-admin.css'); ?>" rel="stylesheet">
     <!-- Favicon image -->
     <link rel="icon" type="image/png" href="<?php echo Uri::create('assets/favicon.png'); ?>"/>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?php echo Uri::create('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?php echo Uri::create('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="<?php echo Uri::create('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="<?php echo Uri::create('assets/vendor/chart.js/Chart.min.js'); ?>"></script>
+    <script src="<?php echo Uri::create('assets/vendor/datatables/jquery.dataTables.js'); ?>"></script>
+    <script src="<?php echo Uri::create('assets/vendor/datatables/dataTables.bootstrap4.js'); ?>"></script>
+
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -147,20 +158,12 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo Uri::create('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-    <script src="<?php echo Uri::create('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="<?php echo Uri::create('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="<?php echo Uri::create('assets/vendor/chart.js/Chart.min.js'); ?>"></script>
-    <script src="<?php echo Uri::create('assets/vendor/datatables/jquery.dataTables.js'); ?>"></script>
-    <script src="<?php echo Uri::create('assets/vendor/datatables/dataTables.bootstrap4.js'); ?>"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="<?php echo Uri::create('assets/js/sb-admin.js'); ?>"></script>
     <!-- Custom scripts for this page-->
     <script src="<?php echo Uri::create('assets/js/sb-admin-datatables.js'); ?>"></script>
     <script src="<?php echo Uri::create('assets/js/sb-admin-charts.js'); ?>"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="<?php echo Uri::create('assets/js/sb-admin.js'); ?>"></script>
+
 </div>
 </body>
 

@@ -96,7 +96,7 @@
         <!-- Latest Vouchers DataTable -->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-ticket"></i> Latest Vouchers
+                <i class="fa fa-ticket"></i> Latest 5 Vouchers Created
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -106,8 +106,6 @@
                             <th>Code</th>
                             <th>Recipient</th>
                             <th>Offer</th>
-                            <th>Only Once</th>
-                            <th>Track Usage</th>
                             <th>Expiration</th>
                             <th>Usage</th>
                         </tr>
@@ -118,10 +116,8 @@
                             <td><?=$v->code;?></td>
                             <td><?=$v->recipient->name;?></td>
                             <td><?=$v->offer->name;?></td>
-                            <td><?=($v->only_once) ? 'Yes':'No';?></td>
-                            <td><?=($v->track_usage) ? 'Yes':'No';?></td>
                             <td><?=$v->date_expiration;?></td>
-                            <td><?=($v->date_usage) ? $v->date_usage : '-';?></td>
+                            <td><?=($v->date_usage) ? $v->date_usage : 'Not Used';?></td>
                         </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -129,3 +125,92 @@
                 </div>
             </div>
         </div>
+
+
+        <script language="JavaScript">
+
+            // -- Voucher Status Pie Chart
+            var ctx = document.getElementById("myPieChart");
+
+            if (ctx) {
+                var myPieChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ["Unused", "Used", "Expired"],
+                        datasets: [{
+                            data: [<?=$vouchers_unused;?>, <?=$vouchers_used;?>, <?=$vouchers_expired;?>],
+                            backgroundColor: ['#30b623', '#dc3545', '#ffc107'],
+                        }],
+                    },
+                });
+            }
+
+            // -- Voucher usage by date chart
+            var ctx = document.getElementById("myAreaChart");
+
+            if (ctx) {
+                var myLineChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: [
+                            <?php
+
+                            foreach ($vouchers_usage as $item) {
+                                echo '"'.$item["date_usage"].'", ';
+                            }
+
+                            ?>
+                            ],
+                        datasets: [{
+                            label: "Usages",
+                            lineTension: 0.3,
+                            backgroundColor: "rgba(2,117,216,0.2)",
+                            borderColor: "rgba(2,117,216,1)",
+                            pointRadius: 5,
+                            pointBackgroundColor: "rgba(2,117,216,1)",
+                            pointBorderColor: "rgba(255,255,255,0.8)",
+                            pointHoverRadius: 5,
+                            pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                            pointHitRadius: 20,
+                            pointBorderWidth: 2,
+                            data: [<?php
+
+                                foreach ($vouchers_usage as $item) {
+                                    echo '"'.$item["count"].'", ';
+                                }
+
+                                ?>],
+                        }],
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                time: {
+                                    unit: 'date'
+                                },
+                                gridLines: {
+                                    display: false
+                                },
+                                ticks: {
+                                    maxTicksLimit: 7
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    maxTicksLimit: 5
+                                },
+                                gridLines: {
+                                    color: "rgba(0, 0, 0, .125)",
+                                }
+                            }],
+                        },
+                        legend: {
+                            display: false
+                        }
+                    }
+                });
+
+            }
+
+        </script>

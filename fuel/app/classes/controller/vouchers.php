@@ -41,11 +41,9 @@ class Controller_Vouchers extends Controller_Template
         foreach ($list as $item) {
             $item->id_recipient = $item->recipient->name;
             $item->id_offer = $item->offer->name;
-            $item->only_once = ($item->only_once) ? "Yes":"No";
-            $item->track_usage = ($item->track_usage) ? "Yes":"No";
             $item->date_usage = (empty($item->date_usage)) ? "Not Used":$item->date_usage;
             $columns = $item->to_array();
-            array_splice($columns, 8, 2); // clear unused items in listing
+            array_splice($columns, 6, 2); // clear unused items in listing
 
             $columns["actions"] = '<div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle btn-sm" type="button"
@@ -81,17 +79,13 @@ class Controller_Vouchers extends Controller_Template
             $record->id_recipient = $_POST["id_recipient"];
             $record->id_offer = $_POST["id_offer"];
             $record->date_expiration = $_POST["date_expiration"];
-            $record->only_once = (isset($_POST["only_once"])) ? true : false;   // checkbox input
             $record->date_usage = (!empty($_POST["date_usage"])) ? $_POST["date_usage"] : NULL;     // not null
-            $record->track_usage = (isset($_POST["track_usage"])) ? true : false;   // checkbox input
             $record->code = $_POST["code"];
         } else {
             // new
             $record = \Model_Voucher::forge($_POST);
             $record->id_voucher = null;
             $record->date_usage = (!empty($_POST["date_usage"])) ? $_POST["date_usage"] : NULL;     // not null
-            $record->only_once = (isset($_POST["only_once"])) ? true : false;   // checkbox input
-            $record->track_usage = (isset($_POST["track_usage"])) ? true : false;   // checkbox input
         }
 
         echo ($record->save()) ? '1':'0';
@@ -123,9 +117,7 @@ class Controller_Vouchers extends Controller_Template
             $voucher->id_recipient = $r->id_recipient;
             $voucher->id_offer = $id_offer;
             $voucher->date_expiration = $expiration_date;
-            $voucher->only_once = true;
             $voucher->date_usage = NULL;
-            $voucher->track_usage = true;
             $voucher->code = $this->generateVoucherCode();  // generate random code
 
             $voucher->save();

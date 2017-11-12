@@ -146,9 +146,7 @@ $(document).ready(function () {
                     });
 
                     $("#date_expiration").val(data.date_expiration);
-                    if (data.only_once == "1") $('#only_once').prop('checked', true); else $('#only_once').prop('checked', false);
                     $("#date_usage").val(data.date_usage);
-                    if (data.track_usage == "1") $('#track_usage').prop('checked', true); else $('#track_usage').prop('checked', false);
                     $("#code").val(data.code);
                     $("#loader").fadeOut('fast');
                     $('#formVouchersModal').modal('show');

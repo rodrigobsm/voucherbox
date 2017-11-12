@@ -14,9 +14,7 @@
                     <th>Recipient</th>
                     <th>Offer</th>
                     <th>Expiration</th>
-                    <th>Only Once</th>
                     <th>Usage</th>
-                    <th>Track Usage</th>
                     <th>Code</th>
                     <th width="1%">Action</th>
                 </tr>
@@ -57,13 +55,6 @@
                         <label for="email" class="col-3 col-form-label">Offer</label>
                         <div class="col-9">
                             <select required class="form-control" type="text" value="" id="id_offer" name="id_offer"></select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="email" class="col-3 col-form-label"></label>
-                        <div class="col-9">
-                            <label><input class="" type="checkbox" value="1" id="only_once" name="only_once" placeholder="Only Once"> Only Once</label>
-                            <label class="pl-5"><input class="" type="checkbox" value="1" id="track_usage" name="track_usage" placeholder="Track Usage"> Track Usage</label>
                         </div>
                     </div>
                     <div class="form-group row">

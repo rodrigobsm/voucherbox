@@ -8,9 +8,7 @@ class Model_Voucher extends Model
 		'id_recipient',
 		'id_offer',
 		'date_expiration',
-		'only_once',
 		'date_usage',
-		'track_usage',
 		'code'
 	);
 

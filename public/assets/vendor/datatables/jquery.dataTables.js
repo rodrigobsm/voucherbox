@@ -4729,6 +4729,7 @@
 					var aData = _fnAjaxDataSrc( settings, json );
 	
 					// Got the data - add it to the table
+					if (aData)
 					for ( i=0 ; i<aData.length ; i++ ) {
 						_fnAddData( settings, aData[i] );
 					}

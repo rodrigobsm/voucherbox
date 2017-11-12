@@ -34,7 +34,24 @@ class Controller_Dashboard extends Controller_Template
         $data["total_vouchers"] = count(\Model_Voucher::find('all'));
         $data["total_vouchers_used"] = count(\Model_Voucher::find('all', array('where' => array(array('date_usage', 'IS NOT', null)))));
 
-        $data["vouchers"] = \Model_Voucher::find('all');
+        // Vouchers by status - Pie Chart
+        $data["vouchers_used"] = count(\Model_Voucher::find('all', array('where' => array(array('date_usage', 'IS NOT', null)))));
+        $data["vouchers_unused"] = count(\Model_Voucher::find('all', array('where' => array(array('date_usage', 'IS', null), array('date_expiration', '>=', \DB::expr('CURDATE()'))))));    // not used and not expired
+        $data["vouchers_expired"] = count(\Model_Voucher::find('all', array('where' => array(array('date_expiration', '<=', \DB::expr('CURDATE()')), array('date_usage', 'IS', null)))));   // not used and expired
+
+        // Vouchers by usage date - Line Chart
+        // SELECT COUNT(*), `date_usage` FROM `voucher`
+        // WHERE `date_usage` IS NOT NULL
+        // GROUP BY `date_usage`
+        $usage_by_date = \DB::select(DB::expr('COUNT(*) as count, date_usage'))
+                        ->from('voucher')
+                        ->where('date_usage', 'IS NOT', NULL)
+                        ->group_by('date_usage')
+                        ->execute();
+        $data["vouchers_usage"] = $usage_by_date->as_array();
+
+        $data["vouchers"] = \Model_Voucher::find('all', array('limit' => 5));
+
         $this->template->title = "Dashboard";
         $this->template->content = \View::forge('dashboard/index', $data);
 	}
