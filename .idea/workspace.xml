@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5650e2a3-a0bb-4b0a-9f2d-9e20c2d20df9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/api/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/api/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/sb-admin.css" afterPath="$PROJECT_DIR$/public/assets/css/sb-admin.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/api/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="729">
@@ -47,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sb-admin.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sb-admin.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/sb-admin.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="837">
-              <caret line="454" column="1" lean-forward="false" selection-start-line="454" selection-start-column="1" selection-end-line="454" selection-end-column="1" />
+            <state relative-caret-position="413">
+              <caret line="413" column="17" lean-forward="false" selection-start-line="413" selection-start-column="17" selection-end-line="413" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -152,8 +151,8 @@
         <option value="$PROJECT_DIR$/fuel/app/classes/controller/offers.php" />
         <option value="$PROJECT_DIR$/fuel/app/classes/controller/api.php" />
         <option value="$PROJECT_DIR$/fuel/app/modules/ws/classes/controller/voucher.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/sb-admin.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/api/index.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/sb-admin.css" />
       </list>
     </option>
   </component>
@@ -690,12 +689,12 @@
       <workItem from="1510271472063" duration="4633000" />
       <workItem from="1510276207258" duration="11632000" />
       <workItem from="1510313214754" duration="12073000" />
-      <workItem from="1510423332058" duration="24001000" />
+      <workItem from="1510423332058" duration="24064000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52339000" />
+    <option name="totallyTimeSpent" value="52402000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1061,18 +1060,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/sb-admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
-          <caret line="454" column="1" lean-forward="false" selection-start-line="454" selection-start-column="1" selection-end-line="454" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/api/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="729">
           <caret line="191" column="4" lean-forward="false" selection-start-line="191" selection-start-column="4" selection-end-line="191" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/sb-admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="413" column="17" lean-forward="false" selection-start-line="413" selection-start-column="17" selection-end-line="413" selection-end-column="17" />
           <folding />
         </state>
       </provider>
