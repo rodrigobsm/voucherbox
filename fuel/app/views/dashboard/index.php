@@ -93,10 +93,10 @@
         </div>
 
 
-        <!-- Latest Vouchers DataTable -->
+        <!-- Latest Vouchers Used DataTable -->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-ticket"></i> Latest 5 Vouchers Created
+                <i class="fa fa-ticket"></i> Latest 5 Vouchers Used
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -111,7 +111,40 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($vouchers as $v): ?>
+                        <?php foreach ($list_vouchers_used as $v): ?>
+                            <tr>
+                                <td><?=$v->code;?></td>
+                                <td><?=$v->recipient->name;?></td>
+                                <td><?=$v->offer->name;?></td>
+                                <td><?=$v->date_expiration;?></td>
+                                <td><?=($v->date_usage) ? $v->date_usage : 'Not Used';?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest Vouchers Created DataTable -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-ticket"></i> Latest 5 Vouchers Created and Not Used
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Recipient</th>
+                            <th>Offer</th>
+                            <th>Expiration</th>
+                            <th>Usage</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($list_vouchers_created as $v): ?>
                         <tr>
                             <td><?=$v->code;?></td>
                             <td><?=$v->recipient->name;?></td>

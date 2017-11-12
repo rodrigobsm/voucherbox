@@ -29,6 +29,7 @@ Since there can be many recipients in a voucher pool, we need a call that auto-g
 3. Configure the file "voucherbox/fuel/app/config/development/db.php" with your MySQL username and password.
 4. Access the application from you web browser like "http://localhost/voucherbox/".
 5. Now you can use this application with happiness! :)
+6. You can use the Postman Collection included in the "voucherbox/EXTRA/Postman" folder to test the web service calls.
 
 ## License
 * MIT License
