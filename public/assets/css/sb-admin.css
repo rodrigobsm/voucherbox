@@ -405,3 +405,51 @@ footer.sticky-footer {
 .alert {
   cursor: pointer;
 }
+
+.api h4 {
+  color: #9f191f;
+}
+
+.api h5 {
+  color: #00aced;
+}
+
+.api h6 {
+  color: #fff;
+  font-size: 22px;
+  margin-top: 50px;
+  border-bottom: 2px solid #2aca76;
+  background: #2aca76;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.api table {
+  margin-bottom: 20px;
+}
+
+.api table thead th {
+  background: #ccc;
+  padding: 5px;
+  border: solid 1px #aaa;
+}
+
+.api table tbody td {
+  padding: 5px;
+  border: solid 1px #aaa;
+}
+
+.api code {
+  display: block;
+  white-space: pre-wrap;
+  border: solid 1px #aaa;
+}
+
+.api ol {
+  color: #2aca76;
+}
+
+.api ol a {
+  color: #2aca76;
+  font-weight: bold;
+}
