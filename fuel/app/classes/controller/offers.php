@@ -41,7 +41,7 @@ class Controller_Offers extends Controller_Template
         foreach ($list as $item) {
             $columns = $item->to_array();
             $columns["action"] = '<div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle btn-sm" type="button"
+                                <button class="btn btn-secondary dropdown-toggle btn-sm" type="button"
                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
                                     <i class="fa fa-cog"></i>

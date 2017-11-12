@@ -53,16 +53,16 @@ class Controller_Voucher extends \Controller_Rest
                 $voucher = \Model_Voucher::find($result[0]["id_voucher"]);
 
                 // Checks if voucher has already expired
-                if (strtotime($voucher->date_expiration) <= date("Y-m-d")) {  // expiration date must be greater or equal to today
+                if (strtotime($voucher->date_expiration) <= date("Y-m-d")) {  // expiration date must be less or equal to today
                     return $this->response(array(
                         "return" => "3",
                         "message" => "Voucher is expired."
-                    ));
+                    ), 422);
                 } else if (!empty($voucher->date_usage)) {
                     return $this->response(array(
                         "return" => "4",
                         "message" => "Voucher is already used."
-                    ));
+                    ), 422);
                 } else {
                     // voucher is valid, not used and can be used now...
 
@@ -81,7 +81,7 @@ class Controller_Voucher extends \Controller_Rest
                 return $this->response(array(
                     "return" => "2",
                     "message" => "Voucher not found."
-                ));
+                ), 404);
             }
 
         } else {
@@ -90,7 +90,7 @@ class Controller_Voucher extends \Controller_Rest
             return $this->response(array(
                 "return" => "1",
                 "message" => "Please inform voucher code and email."
-            ));
+            ), 422);
 
         }
 
@@ -122,7 +122,6 @@ class Controller_Voucher extends \Controller_Rest
                     // Get a model object of this voucher to easily manipulate
                     $voucher = \Model_Voucher::find($r["id_voucher"]);
                     $vouchers[$i]["code"] = $voucher->code;
-                    $vouchers[$i]["expiration"] = $voucher->date_expiration;
                     $vouchers[$i]["offer"] = $voucher->offer->name;
                     $i++;
 
@@ -139,7 +138,7 @@ class Controller_Voucher extends \Controller_Rest
                 return $this->response(array(
                     "return" => "2",
                     "message" => "No valid vouchers found."
-                ));
+                ), 404);
 
             }
 
@@ -149,7 +148,7 @@ class Controller_Voucher extends \Controller_Rest
             return $this->response(array(
                 "return" => "1",
                 "message" => "Please inform recipient's email."
-            ));
+            ), 422);
 
         }
 

@@ -46,7 +46,7 @@ class Controller_Vouchers extends Controller_Template
             array_splice($columns, 6, 2); // clear unused items in listing
 
             $columns["actions"] = '<div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle btn-sm" type="button"
+                                <button class="btn btn-secondary dropdown-toggle btn-sm" type="button"
                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
                                     <i class="fa fa-cog"></i>
