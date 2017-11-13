@@ -110,6 +110,8 @@ class Controller_Vouchers extends Controller_Template
         $expiration_date = Input::post("date_expiration");
 
         $recipients = \Model_Recipient::find('all');
+
+        // Loop between recipients to create the vouchers
         foreach ($recipients as $r) {
 
             // Create a new voucher record

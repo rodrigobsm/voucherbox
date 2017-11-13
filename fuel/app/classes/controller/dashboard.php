@@ -29,6 +29,8 @@ class Controller_Dashboard extends Controller_Template
 	public function action_index()
 	{
         $data = array();
+
+        // Four top widgets
         $data["total_recipients"] = count(\Model_Recipient::find('all'));
         $data["total_offers"] = count(\Model_Offer::find('all'));
         $data["total_vouchers"] = count(\Model_Voucher::find('all'));
